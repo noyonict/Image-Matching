@@ -7,4 +7,4 @@ class UploadImage(models.Model):
     upload_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.image_link
+        return str(self.image_link)

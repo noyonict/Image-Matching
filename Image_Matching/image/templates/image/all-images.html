@@ -8,51 +8,13 @@
             <h2>All Images</h2>
         </div>
         <div class="row">
-            <div class="col-md-6 col-lg-4 item">
-                <a class="lightbox" href="{% static 'image/img/image1.jpg' %}">
-                    <img class="img-fluid image scale-on-hover" src="{% static 'image/img/image1.jpg' %}">
-                </a>
-            </div>
-            <div class="col-md-6 col-lg-4 item">
-                <a class="lightbox" href="{% static 'image/img/image2.jpg' %}">
-                    <img class="img-fluid image scale-on-hover" src="{% static 'image/img/image2.jpg' %}">
-                </a>
-            </div>
-            <div class="col-md-6 col-lg-4 item">
-                <a class="lightbox" href="{% static 'image/img/image3.jpg' %}">
-                    <img class="img-fluid image scale-on-hover" src="{% static 'image/img/image3.jpg' %}">
-                </a>
-            </div>
-            <div class="col-md-6 col-lg-4 item">
-                <a class="lightbox" href="{% static 'image/img/image4.jpg' %}">
-                    <img class="img-fluid image scale-on-hover" src="{% static 'image/img/image4.jpg' %}">
-                </a>
-            </div>
-            <div class="col-md-6 col-lg-4 item">
-                <a class="lightbox" href="{% static 'image/img/image5.jpg' %}">
-                    <img class="img-fluid image scale-on-hover" src="{% static 'image/img/image5.jpg' %}">
-                </a>
-            </div>
-            <div class="col-md-6 col-lg-4 item">
-                <a class="lightbox" href="{% static 'image/img/image6.jpg' %}">
-                    <img class="img-fluid image scale-on-hover" src="{% static 'image/img/image6.jpg' %}">
-                </a>
-            </div>
-            <div class="col-md-6 col-lg-4 item">
-                <a class="lightbox" href="{% static 'image/img/image7.jpg' %}">
-                    <img class="img-fluid image scale-on-hover" src="{% static 'image/img/image7.jpg' %}">
-                </a>
-            </div>
-            <div class="col-md-6 col-lg-4 item">
-                <a class="lightbox" href="{% static 'image/img/image8.jpg' %}">
-                    <img class="img-fluid image scale-on-hover" src="{% static 'image/img/image8.jpg' %}">
-                </a>
-            </div>
-            <div class="col-md-6 col-lg-4 item">
-                <a class="lightbox" href="{% static 'image/img/image9.jpg' %}">
-                    <img class="img-fluid image scale-on-hover" src="{% static 'image/img/image9.jpg' %}">
-                </a>
-            </div>
+            {% for image in images %}
+                <div class="col-md-6 col-lg-4 item">
+                    <a class="lightbox" href="{{ image.image_link.url }}">
+                        <img class="img-fluid image scale-on-hover" src="{{ image.image_link.url }}">
+                    </a>
+                </div>
+            {% endfor %}
         </div>
     </div>
 </section>

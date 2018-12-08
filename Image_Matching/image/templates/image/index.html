@@ -4,39 +4,31 @@
 {% block body %}
     <section class="gallery-block grid-gallery">
         <div class="container">
+            <div class="heading">
+                <h2>Upload a image file</h2>
+            </div>
 
             <form method="POST" action="." enctype="multipart/form-data">
                 {% csrf_token %}
-{#                <div class="form-group">#}
-{#                  <input type="range" class="form-control-range" name="range">#}
-{#                </div>#}
                 <div class="form-group">
                   <input type="file" class="form-control-file border" name="uploaded_image" accept="image/x-png,image/jpeg">
                 </div>
                 <button type="submit" class="btn btn-primary">Upload</button>
               </form>
-
-            <div class="heading">
-                <h2>Similar images</h2>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-4 item">
-                    <a class="lightbox" href="{% static 'image/img/image1.jpg' %}">
-                        <img class="img-fluid image scale-on-hover" src="{% static 'image/img/image1.jpg' %}">
-                    </a>
+            {% if images %}
+                <div class="heading">
+                    <h2>Similar images</h2>
                 </div>
-                <div class="col-md-6 col-lg-4 item">
-                    <a class="lightbox" href="{% static 'image/img/image2.jpg' %}">
-                        <img class="img-fluid image scale-on-hover" src="{% static 'image/img/image2.jpg' %}">
-                    </a>
+                <div class="row">
+                    {% for image in images %}
+                    <div class="col-md-6 col-lg-4 item">
+                        <a class="lightbox" href="{{ image.image_link.url }}">
+                            <img class="img-fluid image scale-on-hover" src="{{ image.image_link.url }}">
+                        </a>
+                    </div>
+                    {% endfor %}
                 </div>
-                <div class="col-md-6 col-lg-4 item">
-                    <a class="lightbox" href="{% static 'image/img/image3.jpg' %}">
-                        <img class="img-fluid image scale-on-hover" src="{% static 'image/img/image3.jpg' %}">
-                    </a>
-                </div>
-            </div>
+            {% endif %}
         </div>
     </section>
 {% endblock body %}
-
