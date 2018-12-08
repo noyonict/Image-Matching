@@ -63,7 +63,7 @@ def index(request):
             images = images.exclude(id=new_image.id)
             images = find_similar_images(new_image, images)
     except Exception as e:
-        error = 'Uploaded file is not an Image or an corrected Image. Please upload a image ...' + str(e)
+        error = 'Uploaded file is not an Image or an corrected Image. Please upload a image ...'
     context = {
         'title': 'Image Matching Portal',
         'images': images,
