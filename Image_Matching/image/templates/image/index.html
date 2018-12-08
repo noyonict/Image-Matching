@@ -11,31 +11,30 @@
             <form method="POST" action="." enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-group">
-                  <input type="file" class="form-control-file border" name="uploaded_image" accept="image/x-png,image/jpeg">
+                  <input type="file" class="form-control-file border" name="uploaded_image" accept="image/x-png,image/jpeg" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Upload</button>
             </form>
-            {% if images %}
+            {% if new_image %}
                 <br />
                 <div class="col-md-12 col-lg-12 item">
-                    <a class="lightbox" href="{{ images.first.image_link.url }}">
-                        <img class="img-fluid image scale-on-hover mx-auto d-block" src="{{ images.first.image_link.url }}">
+                    <a class="lightbox" href="{{ new_image.image_link.url }}">
+                        <img class="img-fluid image scale-on-hover mx-auto d-block" src="{{ new_image.image_link.url }}">
                     </a>
                 </div>
                 <br />
+            {% endif %}
+            {% if images %}
                 <div class="heading">
-                    <h2>Similar images</h2>
+                    <h2>{% if new_image %}Similar images{% else %}All Images{% endif %}</h2>
                 </div>
                 <div class="row">
                     {% for image in images %}
-                        {% if forloop.first %}
-                        {% else %}
-                            <div class="col-md-6 col-lg-4 item">
-                                <a class="lightbox" href="{{ image.image_link.url }}">
-                                    <img class="img-fluid image scale-on-hover" src="{{ image.image_link.url }}">
-                                </a>
-                            </div>
-                        {% endif %}
+                        <div class="col-md-6 col-lg-4 item">
+                            <a class="lightbox" href="{{ image.image_link.url }}">
+                                <img class="img-fluid image scale-on-hover" src="{{ image.image_link.url }}">
+                            </a>
+                        </div>
                     {% endfor %}
                 </div>
             {% endif %}
