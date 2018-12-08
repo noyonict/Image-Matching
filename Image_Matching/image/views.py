@@ -1,6 +1,7 @@
+import cv2
 from django.shortcuts import render
 from .models import UploadImage
-import cv2
+from .forms import ImageUploadForm
 
 
 def find_similar_images(original_image, all_image_to_compare):
@@ -54,15 +55,20 @@ def find_similar_images(original_image, all_image_to_compare):
 def index(request):
     images = UploadImage.objects.order_by('-upload_at')
     new_image = None
-    if request.method == 'POST':
-        image_file = request.FILES['uploaded_image']
-        new_image = UploadImage.objects.create(image_link=image_file)
-        images = images.exclude(id=new_image.id)
-        images = find_similar_images(new_image, images)
+    error = ''
+    try:
+        if request.method == 'POST':
+            image_file = request.FILES['uploaded_image']
+            new_image = UploadImage.objects.create(image_link=image_file)
+            images = images.exclude(id=new_image.id)
+            images = find_similar_images(new_image, images)
+    except Exception as e:
+        error = 'Uploaded file is not an Image or an corrected Image. Please upload a image ...' + str(e)
     context = {
         'title': 'Image Matching Portal',
         'images': images,
         'new_image': new_image,
+        'error': error
     }
     return render(request, 'image/index.html', context)
 

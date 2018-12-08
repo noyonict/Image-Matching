@@ -15,7 +15,9 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Upload</button>
             </form>
+        {% if not error %}
             {% if new_image %}
+                <div class="row">
                 <br />
                 <div class="col-md-12 col-lg-12 item">
                     <a class="lightbox" href="{{ new_image.image_link.url }}">
@@ -23,6 +25,7 @@
                     </a>
                 </div>
                 <br />
+                </div>
             {% endif %}
             {% if images %}
                 <div class="heading">
@@ -38,6 +41,9 @@
                     {% endfor %}
                 </div>
             {% endif %}
+        {% else %}
+            <p>{{ error }}</p>
+        {% endif %}
         </div>
     </section>
 {% endblock body %}
