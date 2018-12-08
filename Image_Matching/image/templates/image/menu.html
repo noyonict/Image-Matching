@@ -13,8 +13,8 @@
       <li class="nav-item {% if request.resolver_match.view_name == 'all-images' %}active{% endif %}">
         <a class="nav-link" href="{% url 'all-images' %}">All Images</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">About Me</a>
+      <li class="nav-item {% if request.resolver_match.view_name == 'about-me' %}active{% endif %}">
+        <a class="nav-link disabled" href="{% url 'about-me' %}">About Me</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

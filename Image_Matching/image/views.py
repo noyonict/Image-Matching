@@ -74,3 +74,10 @@ def all_images(request):
         'images': images,
     }
     return render(request, 'image/all-images.html', context)
+
+
+def about_me(request):
+    context = {
+        'title': 'Md. Mohaymenul Islam (Noyon)',
+    }
+    return render(request, 'about-me.html', context)
