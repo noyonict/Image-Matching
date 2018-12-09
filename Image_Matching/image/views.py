@@ -40,14 +40,10 @@ def find_similar_images(original_image, all_image_to_compare):
             number_keypoints = len((kp1))
 
         similarity = len(good_points) / number_keypoints * 100  # Calculate similarity percentage
-        if similarity > first:
-            if top_three_images:  # Compare Similarity percentage with first
-                top_three_images.pop(0)  # if Similarity percentage is bigger then replace it
+        if similarity > first:          # Compare Similarity percentage with first
             top_three_images.insert(0, f)
             first = similarity
         elif similarity > second:  # Compare Similarity percentage with second
-            if len(top_three_images) > 1:  # if Similarity percentage is bigger then replace it
-                top_three_images.pop(1)
             top_three_images.insert(1, f)
             second = similarity
         elif similarity > third:  # Compare Similarity percentage with third
@@ -55,7 +51,7 @@ def find_similar_images(original_image, all_image_to_compare):
                 top_three_images.pop(2)
             top_three_images.insert(2, f)
             third = similarity
-    return top_three_images  # Return top 3 images
+    return top_three_images[:3]  # Return top 3 images
 
 
 # Create your views here.
