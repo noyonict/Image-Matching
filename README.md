@@ -5,7 +5,7 @@ User can upload a png/jpg image and returns up to 3 of the most similar images t
 Python Version = 3.6.5
 
 # Installation Guide
-1. Install python 3.6 version
+1. Install python 3.6.5 version
 2. open terminal or cmd
 3. Follow the commends
 - virtualenv env
@@ -18,7 +18,7 @@ Python Version = 3.6.5
 - cd Image-Matching/Image_Matching
 - pip install -r requirements.txt
 - python manage.py migrate
-- python manage.py makemigrations
+- python manage.py makemigrations image
 - python manage.py migrate
 - python manage.py createsuperuser
 - python manage.py runserver
