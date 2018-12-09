@@ -37,7 +37,7 @@ def find_similar_images(original_image, all_image_to_compare):
         if len(kp1) >= len(kp2):  # Initialize number_keypoints by lower key-points
             number_keypoints = len(kp2)
         else:
-            number_keypoints = len((kp1))
+            number_keypoints = len(kp1)
 
         similarity = len(good_points) / number_keypoints * 100  # Calculate similarity percentage
         if similarity > first:          # Compare Similarity percentage with first
