@@ -1,7 +1,7 @@
 from django.db import models
 
 
-# Create your models here.
+# For store user uploaded image
 class UploadImage(models.Model):
     image_link = models.ImageField(upload_to='Images')
     upload_at = models.DateTimeField(auto_now_add=True)
