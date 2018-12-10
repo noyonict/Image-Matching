@@ -16,7 +16,7 @@ Pillow==5.3.0
 - virtualenv env
 - cd env
 - source bin/activate (in linux)
-- Script/activate (in windows)
+- cd Scripts && activate && cd .. (in windows)
 - mkdir src
 - cd src
 - git clone https://github.com/noyonict/Image-Matching.git
