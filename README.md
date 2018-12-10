@@ -20,7 +20,7 @@ Pillow==5.3.0
 - mkdir src
 - cd src
 - git clone https://github.com/noyonict/Image-Matching.git
-- cd Image-Matching/Image_Matching
+- cd Image-Matching
 - pip install -r requirements.txt
 - python manage.py migrate
 - python manage.py makemigrations image
@@ -35,7 +35,7 @@ Pillow==5.3.0
 - os - Linux
 - Programming Language - Python, JavaScript
 - Framework - Django
-- Library - jQuery, OpenCV, numpy, Pillow
+- Library - OpenCV, numpy, Pillow, jQuery
 - Database - SQLite3
 - Web Server - Ngnix
 
@@ -61,3 +61,6 @@ For find the matches I used knnMatch. Which actually used Brute-Force matcher.
 Brute-Force matcher is simple. It takes the descriptor of one feature in first 
 set and is matched with all other features in second set using some distance 
 calculation. And the closest one is returned.
+
+# Live Demo
+http://image.pythonanywhere.com/
