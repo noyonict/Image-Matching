@@ -9,7 +9,16 @@ opencv-contrib-python==3.4.2.16
 opencv-python==3.4.2.16
 Pillow==5.3.0
 
-# Installation Guide
+# Installation Guide Using Dockerfile
+1. Follow the commends
+- git clone https://github.com/noyonict/Image-Matching.git
+- cd Image-Matching
+- docker-compose build
+- docker-compose up
+2. Then browse: 127.0.0.1:8800
+4. All done
+
+# Installation Guide Using Virtual Environment
 1. Install python 3.6.5 version
 2. open terminal or cmd
 3. Follow the commends
