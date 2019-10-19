@@ -58,7 +58,7 @@ $ python manage.py runserver
 def image_similarity_algorithm(original_image, all_other_images):
     key_point_1, descriptor_1 = from original_image
     top_three_images = []
-   for image in all_other_images:
+    for image in all_other_images:
         key_point_2, descriptor_2 = from image
         matches = find the matches from (descriptor_1, descriptor_2)
         good_points = filter matches for good matches
