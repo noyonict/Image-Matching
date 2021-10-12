@@ -1,6 +1,6 @@
 django>=2.1.11
 numpy==1.15.4
 opencv-contrib-python==3.4.2.16
-opencv-python==3.4.2.16
+opencv-python==4.2.0.32
 Pillow==6.2.0
 pytz==2018.7
